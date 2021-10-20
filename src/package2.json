@@ -1,0 +1,461 @@
+{
+    "GCP": {
+        "data_labels":  [ 
+            {
+              "label": "Classification-Type",
+              "type": "dropdown",
+              "property": "classification_type",
+              "required": true,
+              "reset": true,
+              "isSingle": "true",
+              "placeholder": "Select classification type",
+              "value" : []
+            },
+            {
+              "label": "Advance Option",
+              "type": "hiddenControl",
+              "property": "advance",
+              "required": true,
+              "readonly": "!editable",
+              "reset": true,
+              "formArrayName" :"advanceArray",
+              "innerControls": {
+                "true": [{
+                  "label": "Enter tags to be excluded",
+                  "type": "text",
+                  "property": "tags",
+                  "required": true,
+                  "readonly": "!editable",
+                  "reset": true,
+                  "placeholder": "Enter , separated values",
+                  "value" : ""
+                }]
+              }
+            },
+            {
+              "label": "Next",
+              "type": "submitButton"
+            }
+        ],
+
+        "augmentation": [
+            {
+              "label": "Transformation Parameters",
+              "type": "header"
+        
+            }, 
+            {
+              "label": "Rotate",
+              "type": "text",
+              "property": "rotate_max",
+              "required": true,
+              "readonly": "!editable",
+              "reset": true,
+              "placeholder": "Value from -90 to +90"
+              
+            },
+            {
+              "label": "Gray Scale",
+              "type": "checkbox",
+              "property": "gray",
+              "required": true,
+              "readonly": "!editable",
+              "reset": true,
+              "value" : ""
+            },
+            {
+              "label": "Normalize",
+              "type": "checkbox",
+              "property": "normalize",
+              "required": true,
+              "readonly": "!editable",
+              "reset": true
+            },
+            {
+              "label": "Flip",
+              "type": "formDependentArray",
+              "property": "flip",
+              "required": true,
+              "readonly": "!editable",
+              "reset": true,
+              "formArrayName" :"flipArray",
+              "innerControls": {
+                "true": [{
+                  "label": "Flip-axis",
+                  "type": "dropdown",
+                  "property": "flip_axis",
+                  "required": true,
+                  "readonly": "!editable",
+                  "reset": true,
+                  "disabled": true,
+                  "isSingle": "true"
+        
+                }]
+              }
+            },
+            {
+              "label": "TF Parameters",
+              "type": "header"
+        
+            }, 
+            {
+              "label": "Image-Size",
+              "type": "text",
+              "property": "img_size",
+              "required": true,
+              "readonly": "!editable",
+              "reset": true,
+              "disabled": true,
+              "placeholder" : 28,
+              "value" : "28"
+            },
+            {
+              "label": "Train-Data",
+              "type": "static_data",
+              "disabled": true,
+              "placeholder" : "70%"
+        
+            },
+            {
+              "label": "Test-Data",
+              "type": "static_data",
+              "disabled": true,
+              "placeholder" : "15%"
+            },
+            {
+              "label": "Valid-Data",
+              "type": "static_data",
+              "disabled": true,
+              "placeholder" : "15%"
+            }, 
+            {
+              "label": "Next",
+              "type": "submitButton"
+            }
+        ],
+
+        "training_params": [
+            {
+              "label": "Training Parameters",
+              "type": "formArray",
+              "reset": true,
+              "innerControls" : [
+                  {
+                    "label": "Hp tuning",
+                    "type": "checkbox",
+                    "property": "hp_tuning",
+                    "required": true,
+                    "readonly": "!editable",
+                    "reset": true,
+                    "value" : ""
+                  },
+                {
+                  "label" : "Batch Size",
+                  "type" : "text",
+                  "placeholder" : "Enter batch size",
+                  "property" : "batch_size",
+                  "reset" : true,
+                  "required" : true
+        
+                },
+                {
+                  "label" : "Learning Rate",
+                  "type" : "text",
+                  "placeholder" : "Enter learning rate",
+                  "property" : "learning_rate",
+                  "reset" : true,
+                  "required" : true
+        
+                },
+                {
+                  "label" : "Worker Count",
+                  "type" : "text",
+                  "placeholder" : "Enter worker count",
+                  "property" : "worker_count",
+                  "reset" : true,
+                  "required" : true
+        
+                },
+                {
+                  "label" : "Paramter Server Count",
+                  "type" : "text",
+                  "placeholder" : "Enter parameter server count",
+                  "property" : "ps_count",
+                  "reset" : true,
+                  "required" : true
+        
+                },
+                {
+                  "label" : "Maximum Trials",
+                  "type" : "text",
+                  "placeholder" : "Enter number of trials",
+                  "property" : "max_trials",
+                  "reset" : true,
+                  "required" : true
+                },
+                {
+                  "label" : "Train Steps",
+                  "type" : "text",
+                  "placeholder" : "Enter number of training steps",
+                  "property" : "train_steps",
+                  "reset" : true,
+                  "required" : true
+        
+                },
+                {
+                  "label" : "Eval Steps",
+                  "type" : "text",
+                  "placeholder" : "Enter number of eval steps",
+                  "property" : "eval_steps",
+                  "reset" : true,
+                  "required" : true
+        
+                },
+                {
+                  "label" : "Number of epochs",
+                  "type" : "text",
+                  "placeholder" : "Enter number of epochs",
+                  "property" : "num_epochs",
+                  "reset" : true,
+                  "required" : true
+        
+                },
+                {
+                  "label" : "Eval Throttle Secs",
+                  "type" : "text",
+                  "placeholder" : "Enter eval seconds",
+                  "property" : "eval_secs",
+                  "reset" : true,
+                  "required" : true
+        
+                },
+                {
+                  "label" : "tag",
+                  "type" : "text",
+                  "placeholder" : "Enter a tag name",
+                  "property" : "tag",
+                  "reset" : true,
+                  "required" : true
+        
+                }
+              ]
+            }, 
+            {
+              "label" : "Submit",
+              "type": "submitButton"
+            }
+        ],
+
+        "dropdown": {
+            "classification_type": ["single_label", "multi_label"],
+            "flip_axis": ["horizontal" , "vertical","both"]
+        }
+    },
+
+
+    "AWS": {
+      "data_labels": [ 
+        {
+          "label": "Classification Type",
+          "type": "dropdown",
+          "property": "classification_type",
+          "required": true,
+          "reset": true,
+          "isSingle": "true",
+          "placeholder": "Select classification type",
+          "value" : []
+        },
+
+        {
+          "label": "Instance Count",
+          "type": "text",
+          "property": "instance_count",
+          "required": true,
+          "reset": true,
+          "placeholder": "Enter instace count",
+          "value" : []
+        },
+
+        {
+          "label": "Next",
+          "type": "submitButton"
+        }
+      ],
+  
+      "augmentation": [
+      
+        {
+          "label": "Enter image height",
+          "placeholder" : "Enter image height",
+          "type": "text",
+          "property": "image_height",
+          "required": true,
+          "reset": true,
+          "value" : ""
+        },
+
+        {
+          "label": "Enter image width",
+          "placeholder" : "Enter image width",
+          "type": "text",
+          "property": "image_width",
+          "required": true,
+          "reset": true,
+          "value" : ""
+        },
+
+        {
+          "label": "Enter number of classes",
+          "placeholder" : "Enter number of classes",
+          "type": "text",
+          "property": "num_class",
+          "required": true,
+          "reset": true,
+          "value" : ""
+        },
+
+        {
+          "label": "Select instance type",
+          "placeholder" : "Select instance type",
+          "type": "dropdown",
+          "isSingle": "true",
+          "property": "instance_type",
+          "required": true,
+          "reset": true,
+          "value" : ""
+        },
+
+        {
+          "label": "Next",
+          "type": "submitButton"
+        }
+        
+      ],
+      
+      "training_params" : [
+        {
+          "label": "Training Parameters",
+          "type": "formArray",
+          "property": "training_parameters",
+          "reset": true,
+          "innerControls" : [ 
+  
+            {
+              "label": "Model name",
+              "type": "text",
+              "placeholder": "Enter model name",
+              "property": "model_name",
+              "required": true,
+              "reset": true
+    
+            },
+            {
+              "label" : "Train Method",
+              "type" : "text",
+              "placeholder" : "Enter train method",
+              "property" : "train_method",
+              "reset" : true,
+              "required" : true
+    
+            },
+  
+            {
+              "label" : "Train Steps",
+              "type" : "text",
+              "placeholder" : "Enter training steps",
+              "property" : "train_steps",
+              "reset" : true,
+              "required" : true
+            },
+  
+            {
+              "label" : "Eval Steps",
+              "type" : "text",
+              "placeholder" : "Enter eval steps",
+              "property" : "eval_steps",
+              "reset" : true,
+              "required" : true
+    
+            },
+            {
+              "label" : "Number of Classes",
+              "type" : "text",
+              "placeholder" : "Enter number of classes",
+              "property" : "num_classes",
+              "reset" : true,
+              "required" : true
+    
+            },
+            
+            {
+              "label" : "Number of Epochs",
+              "type" : "text",
+              "placeholder" : "Enter number of epochs",
+              "property" : "num_epochs",
+              "reset" : true,
+              "required" : true
+    
+            },
+            
+            
+            {
+              "label" : "Image Size",
+              "type" : "text",
+              "placeholder" : "Enter image size",
+              "property" : "image_size",
+              "reset" : true,
+              "required" : true
+    
+            },
+            {
+              "label" : "Eval Throttle Seconds",
+              "type" : "text",
+              "placeholder" : "Enter throttle seconds",
+              "property" : "eval_throttle_secs",
+              "reset" : true,
+              "required" : true
+    
+            },
+            
+            {
+              "label" : "Learning Rate",
+              "type" : "text",
+              "placeholder" : "Enter learning rate",
+              "property" : "learning_rate",
+              "reset" : true,
+              "required" : true
+    
+            },
+            {
+              "label" : "Number of Workers",
+              "type" : "text",
+              "placeholder" : "Enter number of workers",
+              "property" : "worker_count",
+              "reset" : true,
+              "required" : true
+    
+            },
+            {
+              "label" : "Strategy",
+              "type" : "text",
+              "placeholder" : "Enter strategy",
+              "property" : "strategy",
+              "reset" : true,
+              "required" : true
+    
+            }
+          ]
+        }, 
+        {
+          "label" : "Submit",
+          "type": "submitButton"
+        }
+    ],
+
+    "dropdown": {
+        "classification_type": ["single label", "multi label"],
+        "instance_type": ["ml.t2.2xlarge", "ml.t3.medium", "ml.t3.large"],
+        "ml_instance_type": ["ml.p3.2xlarge", "ml.p3.8xlarge"]
+    }
+    }
+}

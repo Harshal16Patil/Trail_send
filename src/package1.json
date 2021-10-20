@@ -1,0 +1,135 @@
+{
+  "AWS": {
+      "data_labels": [ 
+          {
+              "label": "Time Length",
+              "type": "text",
+              "property": "time_length",
+              "required": true,
+              "reset": true,
+              "placeholder": "Enter time length",
+              "value" : []
+          },
+  
+          {
+            "label": "Extension",
+            "type": "text",
+            "property": "extension",
+            "required": true,
+            "reset": true,
+            "placeholder": "Enter extension",
+            "value" : []
+          },
+  
+          {
+            "label": "Next",
+            "type": "submitButton"
+          }
+        ],
+    
+        "augmentation": [
+          {
+            "label": "Select instance type",
+            "placeholder" : "Select instance type",
+            "type": "dropdown",
+            "isSingle": "true",
+            "property": "instance_type",
+            "required": true,
+            "reset": true,
+            "value" : ""
+          },
+  
+          {
+            "label": "Next",
+            "type": "submitButton"
+          }
+          
+        ],
+        
+        "training_params" : [
+          {
+            "label": "Training Parameters",
+            "type": "formArray",
+            "property": "training_parameters",
+            "reset": true,
+            "innerControls" : [
+                  {
+                      "label": "Model name",
+                      "type": "text",
+                      "placeholder": "Enter model name",
+                      "property": "model_name",
+                      "required": true,
+                      "reset": true
+          
+                  },
+
+                  {
+                      "label" : "Batch size",
+                      "type" : "text",
+                      "placeholder" : "Enter batch size",
+                      "property" : "batch_size",
+                      "reset" : true,
+                      "required" : true
+          
+                  },
+
+                  {
+                      "label" : "Number of Classes",
+                      "type" : "text",
+                      "placeholder" : "Enter number of classes",
+                      "property" : "num_classes",
+                      "reset" : true,
+                      "required" : true
+          
+                  },
+                  
+                  {
+                      "label" : "Number of Epochs",
+                      "type" : "text",
+                      "placeholder" : "Enter number of epochs",
+                      "property" : "num_epochs",
+                      "reset" : true,
+                      "required" : true
+          
+                  },
+                  
+                  {
+                      "label" : "Splits",
+                      "type" : "text",
+                      "placeholder" : "Enter split seconds",
+                      "property" : "split_sec",
+                      "reset" : true,
+                      "required" : true
+          
+                  },
+
+                  {
+                      "label": "Select optimizer",
+                      "placeholder" : "Select optimizer",
+                      "type": "dropdown",
+                      "isSingle": "true",
+                      "property": "optimizer",
+                      "required": true,
+                      "reset": true,
+                      "value" : ""
+                  }
+              ]
+          }, 
+          {
+            "label" : "Submit",
+            "type": "submitButton"
+          } 
+      ],
+  
+      "dropdown": {
+          "instance_type": ["ml.c4.xlarge","ml.c4.2xlarge", "ml.c4.4xlarge"],
+          "optimizer": ["adam", "rms", "sgd"]
+      }
+  },
+
+
+  "GCP": {
+      
+  }
+  
+}
